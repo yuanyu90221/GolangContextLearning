@@ -204,6 +204,7 @@ func function2(ctx context.Context) {
 這個模組會
 
 1 當 cancel 被呼叫時，產生一個新的 gorountine 在背景來傳遞這個 cancelation event 到所有 child context 
+
 2 會紀錄所有 children context 在 parent context 結構
 
 所以如果當一個程式執行完卻沒有做 cancel 這些生成的 context ， 這些 child context 會留存在記憶體內有機會造成 memory leak，因為沒有做好適當的回收。
